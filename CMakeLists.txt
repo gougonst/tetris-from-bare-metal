@@ -19,14 +19,27 @@ set(PICO_SDK_INIT_CMAKE_FILE ${PICO_SDK_PATH}/pico_sdk_init.cmake)
 
 include(${PICO_SDK_INIT_CMAKE_FILE})
 
+set(SRC_FILES
+    src/main.c
+    src/button_record.c
+    src/controller.c
+    src/tetris_model.c
+)
+set(INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
+set(LIB_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/lib)
+
 project(tetris_from_bare_metal C CXX ASM)
 
 pico_sdk_init()
 
 add_executable(tetris_from_bare_metal
-    main.c
+    ${SRC_FILES}
 )
 
 target_link_libraries(tetris_from_bare_metal pico_stdlib)
+target_include_directories(tetris_from_bare_metal PRIVATE
+    ${LIB_INCLUDE_DIR}
+    ${INCLUDE_DIR}
+)
 
 pico_add_extra_outputs(tetris_from_bare_metal)
