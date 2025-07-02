@@ -32,11 +32,13 @@ project(tetris_from_bare_metal C CXX ASM)
 
 pico_sdk_init()
 
+add_subdirectory(${LIB_INCLUDE_DIR}/pico-displayDrivs)
+
 add_executable(tetris_from_bare_metal
     ${SRC_FILES}
 )
 
-target_link_libraries(tetris_from_bare_metal pico_stdlib)
+target_link_libraries(tetris_from_bare_metal pico_stdlib ili9341 gfx)
 target_include_directories(tetris_from_bare_metal PRIVATE
     ${LIB_INCLUDE_DIR}
     ${INCLUDE_DIR}
