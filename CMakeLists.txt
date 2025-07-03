@@ -20,10 +20,12 @@ set(PICO_SDK_INIT_CMAKE_FILE ${PICO_SDK_PATH}/pico_sdk_init.cmake)
 include(${PICO_SDK_INIT_CMAKE_FILE})
 
 set(SRC_FILES
+    src/button.c
     src/main.c
-    src/button_record.c
-    src/controller.c
-    src/tetris_model.c
+    src/monitor.c
+    src/game_controller.c
+    src/game_model.c
+    src/game_view.c
 )
 set(INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
 set(LIB_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/lib)
