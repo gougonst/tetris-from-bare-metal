@@ -4,11 +4,14 @@
 #include <stdlib.h>
 #include "gfx.h"
 
+#include "config.h"
+
 typedef struct {
-    int temp_data;
+    int counter;
 } GameView;
 
-GameView* view_init();
-void view_update(GameView* view, int counter);
+volatile GameView* view_init();
+void view_update(volatile GameView* view, int counter);
+void view_show(volatile GameView* view);
 
 #endif

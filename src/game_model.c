@@ -1,12 +1,12 @@
 #include "game_model.h"
 
-GameModel* model_init() {
-    GameModel *model = malloc(sizeof(GameModel));
+volatile GameModel* model_init() {
+    volatile GameModel *model = malloc(sizeof(GameModel));
     model->counter = 0;
     return model;
 }
 
-void model_update(GameModel *model, Event e) {
+void model_update(volatile GameModel *model, Event e) {
     switch (e) {
     case EVENT_LEFT:
         _handle_left(model);
@@ -26,22 +26,22 @@ void model_update(GameModel *model, Event e) {
     }
 }
 
-int get_data(GameModel *model) {
+int get_data(volatile GameModel *model) {
     return model->counter;
 }
 
-void _handle_left(GameModel *model) {
+void _handle_left(volatile GameModel *model) {
     uart_puts(UART_ID, "Click Left\r\n");
 }
 
-void _handle_right(GameModel *model) {
+void _handle_right(volatile GameModel *model) {
     uart_puts(UART_ID, "Click Right\r\n");
 }
 
-void _handle_func(GameModel *model) {
+void _handle_func(volatile GameModel *model) {
     uart_puts(UART_ID, "Click Func\r\n");
 }
 
-void _handle_start(GameModel *model) {
+void _handle_start(volatile GameModel *model) {
     uart_puts(UART_ID, "Click Start\r\n");
 }

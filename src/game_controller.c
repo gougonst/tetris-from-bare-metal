@@ -1,15 +1,15 @@
 #include "game_controller.h"
 
-GameController* controller_init(GameModel* model, GameView* view) {
-    GameController* controller = malloc(sizeof(GameController));
+volatile GameController* controller_init(volatile GameModel* model, volatile GameView* view) {
+    volatile GameController* controller = malloc(sizeof(GameController));
     controller->_model = model;
     controller->_view = view;
     return controller;
 }
 
-void game_loop(GameController* controller) {
-    GameView* view = controller->_view;
-    GameModel* model = controller->_model;
+void game_loop(volatile GameController* controller) {
+    volatile GameView* view = controller->_view;
+    volatile GameModel* model = controller->_model;
 
     while (true) {
         Event event = button_poll();

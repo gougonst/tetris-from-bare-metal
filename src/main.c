@@ -1,12 +1,22 @@
-#include "pico/stdlib.h"
 #include "hardware/uart.h"
+#include "pico/multicore.h"
+#include "pico/stdlib.h"
 
-#include "config.h"
 #include "button.h"
+#include "config.h"
 #include "game_controller.h"
 #include "game_model.h"
 #include "game_view.h"
 #include "monitor.h"
+
+volatile GameModel* model = NULL;
+volatile GameView* view = NULL;
+volatile GameController* controller = NULL;
+
+void view_thread_entry() {
+    uart_puts(UART_ID, "Start view thread.\r\n");
+    view_show(view);
+}
 
 int main() {
     uart_init(UART_ID, BAUD_RATE);
@@ -20,9 +30,11 @@ int main() {
     button_init();
     uart_puts(UART_ID, "Button init finished.\r\n");
 
-    GameModel *model = model_init();
-    GameView *view = view_init();
-    GameController* controller = controller_init(model, view);
+    model = model_init();
+    view = view_init();
+    controller = controller_init(model, view);
+
+    multicore_launch_core1(view_thread_entry);
 
     game_loop(controller);
 

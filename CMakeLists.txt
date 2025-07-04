@@ -40,7 +40,7 @@ add_executable(tetris_from_bare_metal
     ${SRC_FILES}
 )
 
-target_link_libraries(tetris_from_bare_metal pico_stdlib ili9341 gfx)
+target_link_libraries(tetris_from_bare_metal pico_stdlib pico_multicore ili9341 gfx)
 target_include_directories(tetris_from_bare_metal PRIVATE
     ${LIB_INCLUDE_DIR}
     ${INCLUDE_DIR}

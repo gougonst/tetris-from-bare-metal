@@ -10,11 +10,11 @@
 #include "game_view.h"
 
 typedef struct {
-    GameModel* _model;
-    GameView* _view;
+    volatile GameModel* _model;
+    volatile GameView* _view;
 } GameController;
 
-GameController* controller_init(GameModel* model, GameView* view);
-void game_loop(GameController* controller);
+volatile GameController* controller_init(volatile GameModel* model, volatile GameView* view);
+void game_loop(volatile GameController* controller);
 
 #endif

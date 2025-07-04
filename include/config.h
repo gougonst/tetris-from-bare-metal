@@ -25,5 +25,6 @@
 
 // Game setting
 #define INPUT_DELAY 50
+#define REFRESH_RATE 15
 
 #endif
