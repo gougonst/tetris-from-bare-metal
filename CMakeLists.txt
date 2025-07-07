@@ -21,11 +21,13 @@ include(${PICO_SDK_INIT_CMAKE_FILE})
 
 set(SRC_FILES
     src/button.c
-    src/main.c
-    src/monitor.c
     src/game_controller.c
     src/game_model.c
     src/game_view.c
+    src/main.c
+    src/monitor.c
+    src/rect.c
+    src/utils.c
 )
 set(INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
 set(LIB_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/lib)
