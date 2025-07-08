@@ -24,6 +24,8 @@ set(SRC_FILES
     src/game_controller.c
     src/game_model.c
     src/game_view.c
+    src/gfx_graphics.c
+    src/label.c
     src/main.c
     src/monitor.c
     src/rect.c

@@ -5,12 +5,12 @@
 
 #include "graphics.h"
 
-typedef struct {
+typedef struct Shape {
     uint16_t color;
     uint16_t x;
     uint16_t y;
 
-    void (*draw)(Shape*, Graphics*);
+    void (*draw)(struct Shape*, Graphics*);
 } Shape;
 
 #endif
