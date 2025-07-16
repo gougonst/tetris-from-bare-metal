@@ -1,4 +1,4 @@
-#include "game_controller.h"
+#include "controller/game_controller.h"
 
 volatile GameController* init_controller(volatile GameModel* model, volatile GameView* view) {
     volatile GameController* controller = malloc(sizeof(GameController));

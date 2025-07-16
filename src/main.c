@@ -43,4 +43,6 @@ int main() {
     free_view(view);
     free_controller(controller);
     uart_puts(UART_ID, "Button teardown finished.\r\n");
+
+    return 0;
 }

@@ -2,6 +2,7 @@
 #define GAME_MODEL_H
 
 #include <stdlib.h>
+
 #include "hardware/uart.h"
 
 #include "composite_shape.h"

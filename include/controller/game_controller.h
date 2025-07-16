@@ -2,10 +2,8 @@
 #define GAME_CONTROLLER_H
 
 #include <stdlib.h>
-#include "hardware/uart.h"
 
 #include "button.h"
-
 #include "game_model.h"
 #include "game_view.h"
 

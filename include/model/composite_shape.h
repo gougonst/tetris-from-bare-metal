@@ -5,8 +5,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "hardware/uart.h"
-
 #include "config.h"
 #include "graphics.h"
 #include "shape.h"
