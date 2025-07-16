@@ -5,12 +5,16 @@
 
 #include "graphics.h"
 
-typedef struct Shape {
+typedef enum {
+    RECT,
+    LABEL
+} ShapeType;
+
+typedef struct {
+    ShapeType shape_type;
     uint16_t color;
     uint16_t x;
     uint16_t y;
-
-    void (*draw)(struct Shape*, Graphics*);
 } Shape;
 
 #endif

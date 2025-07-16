@@ -14,7 +14,9 @@ typedef struct {
     volatile GameView* _view;
 } GameController;
 
-volatile GameController* controller_init(volatile GameModel* model, volatile GameView* view);
+volatile GameController* init_controller(volatile GameModel* model, volatile GameView* view);
+void free_controller(volatile GameController* controller);
+
 void game_loop(volatile GameController* controller);
 
 #endif

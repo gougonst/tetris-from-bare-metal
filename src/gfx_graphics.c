@@ -9,6 +9,10 @@ GFXGraphics* init_gfx_graphics() {
     return graphics;
 }
 
+void free_gfx_graphics(GFXGraphics* graphics) {
+    free(graphics);
+}
+
 void gfx_clear() {
     GFX_clearScreen();
 }

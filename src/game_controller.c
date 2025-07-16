@@ -1,10 +1,14 @@
 #include "game_controller.h"
 
-volatile GameController* controller_init(volatile GameModel* model, volatile GameView* view) {
+volatile GameController* init_controller(volatile GameModel* model, volatile GameView* view) {
     volatile GameController* controller = malloc(sizeof(GameController));
     controller->_model = model;
     controller->_view = view;
     return controller;
+}
+
+void free_controller(volatile GameController* controller) {
+    free((void *)controller);
 }
 
 void game_loop(volatile GameController* controller) {
@@ -12,13 +16,10 @@ void game_loop(volatile GameController* controller) {
     volatile GameModel* model = controller->_model;
 
     while (true) {
-        Event event = button_poll();
-        model_update(model, event);
-        int counter = get_data(model);
-        if (counter % 20 == 0) {
-            int counter = get_data(model);
-            view_update(view, counter / 20);
-        }
+        Event event = poll_button();
+        update_model(model, event);
+        CompositeShapeArray* shapes = get_shapes(model);
+        update_view(view, shapes, 0);
         sleep_ms(INPUT_DELAY);
     }
 }

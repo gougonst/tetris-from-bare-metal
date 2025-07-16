@@ -4,16 +4,24 @@
 #include <stdlib.h>
 #include "hardware/uart.h"
 
+#include "composite_shape.h"
 #include "config.h"
 #include "event.h"
+#include "label.h"
+#include "rect.h"
+#include "shape.h"
+#include "utils.h"
 
 typedef struct {
-    int counter;
+    CompositeShape* background;
+    int score;
 } GameModel;
 
-volatile GameModel* model_init();
-void model_update(volatile GameModel *model, Event e);
-int get_data(volatile GameModel *model);
+volatile GameModel* init_model();
+void free_model(volatile GameModel *model);
+
+void update_model(volatile GameModel *model, Event e);
+CompositeShapeArray* get_shapes(volatile GameModel *model);
 
 void _handle_left(volatile GameModel *model);
 void _handle_right(volatile GameModel *model);

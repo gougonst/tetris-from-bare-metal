@@ -21,6 +21,7 @@ include(${PICO_SDK_INIT_CMAKE_FILE})
 
 set(SRC_FILES
     src/button.c
+    src/composite_shape.c
     src/game_controller.c
     src/game_model.c
     src/game_view.c

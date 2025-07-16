@@ -32,8 +32,8 @@ typedef struct {
 
 extern Button *BUTTONS;
 
-void button_init();
-void button_teardown();
-Event button_poll();
+void init_button();
+void free_button();
+Event poll_button();
 
 #endif

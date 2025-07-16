@@ -12,6 +12,7 @@ typedef struct {
 } GFXGraphics;
 
 GFXGraphics* init_gfx_graphics();
+void free_gfx_graphics(GFXGraphics* graphics);
 void gfx_clear();
 void gfx_flush();
 void gfx_draw_rect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color);

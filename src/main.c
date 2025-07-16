@@ -15,7 +15,7 @@ volatile GameController* controller = NULL;
 
 void view_thread_entry() {
     uart_puts(UART_ID, "Start view thread.\r\n");
-    view_show(view);
+    show_view(view);
 }
 
 int main() {
@@ -24,20 +24,23 @@ int main() {
     gpio_set_function(UART_RX_PIN, UART_FUNCSEL_NUM(UART_ID, UART_RX_PIN));
     uart_puts(UART_ID, "UART init finished.\r\n");
 
-    monitor_init();
+    init_monitor();
     uart_puts(UART_ID, "Monitor init finished.\r\n");
 
-    button_init();
+    init_button();
     uart_puts(UART_ID, "Button init finished.\r\n");
 
-    model = model_init();
-    view = view_init();
-    controller = controller_init(model, view);
+    model = init_model();
+    view = init_view();
+    controller = init_controller(model, view);
 
     multicore_launch_core1(view_thread_entry);
 
     game_loop(controller);
 
-    button_teardown();
+    free_button();
+    free_model(model);
+    free_view(view);
+    free_controller(controller);
     uart_puts(UART_ID, "Button teardown finished.\r\n");
 }

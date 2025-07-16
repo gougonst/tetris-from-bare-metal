@@ -23,7 +23,7 @@ ButtonState get_button_record(int id) {
     return button_record == NULL ? -1 : button_record->state;
 }
 
-void button_init() {
+void init_button() {
     int btn_ids[NUM_BTN] = {BTN_RIGHT_ID, BTN_LEFT_ID, BTN_FUNC_ID, BTN_START_ID};
     Event btn_events[NUM_BTN] = {EVENT_RIGHT, EVENT_LEFT, EVENT_FUNC, EVENT_START};
     for (int i = 0; i < NUM_BTN; i++) {
@@ -45,7 +45,7 @@ void button_init() {
     }
 }
 
-void button_teardown() {
+void free_button() {
     ButtonRecord *cur_btn_record, *tmp_btn_record;
     HASH_ITER(hh, BUTTON_RECORDS, cur_btn_record, tmp_btn_record) {
         HASH_DEL(BUTTON_RECORDS, cur_btn_record);
@@ -59,7 +59,7 @@ void button_teardown() {
     }
 }
 
-Event button_poll() {
+Event poll_button() {
     Button *cur, *tmp;
     HASH_ITER(hh, BUTTONS, cur, tmp) {
         int id = cur->id;

@@ -12,7 +12,6 @@ typedef struct {
     uint16_t size;
 } Label;
 
-Label* label_init(uint16_t x, uint16_t y, char text[], uint16_t size, uint16_t color);
-void draw_label(Shape* shape, Graphics* graphics);
+Label* init_label(uint16_t x, uint16_t y, char text[], uint16_t size, uint16_t color);
 
 #endif

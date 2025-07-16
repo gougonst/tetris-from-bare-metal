@@ -1,6 +1,6 @@
 #include "monitor.h"
 
-void monitor_init() {
+void init_monitor() {
     LCD_setPins(
         MONITOR_DC_ID,
         MONITOR_CS_ID,

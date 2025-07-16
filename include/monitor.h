@@ -6,6 +6,6 @@
 
 #include "config.h"
 
-void monitor_init();
+void init_monitor();
 
 #endif
