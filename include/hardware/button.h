@@ -8,12 +8,12 @@
 #include "config.h"
 #include "event.h"
 
-typedef enum {
+typedef enum ButtonState {
     PRESSED = 0,
     RELEASED = 1
 } ButtonState;
 
-typedef struct {
+typedef struct ButtonRecord {
     int id;
     ButtonState state;
     UT_hash_handle hh;
@@ -24,7 +24,7 @@ extern ButtonRecord *BUTTON_RECORDS;
 void update_button_record(int id, ButtonState state);
 ButtonState get_button_record(int id);
 
-typedef struct {
+typedef struct Button {
     int id;
     Event event;
     UT_hash_handle hh;

@@ -11,13 +11,13 @@
 
 #define INIT_NUM_SHAPES 5
 
-typedef struct {
+typedef struct CompositeShape {
     int num_shapes;
     int max_shapes;
     Shape** shapes;
 } CompositeShape;
 
-typedef struct {
+typedef struct CompositeShapeArray {
     int num_shapes;
     CompositeShape** shapes;
 } CompositeShapeArray;

@@ -9,12 +9,18 @@
 #include "config.h"
 #include "event.h"
 #include "label.h"
+#include "pair.h"
 #include "rect.h"
 #include "shape.h"
+#include "stack.h"
+#include "tetromino.h"
 #include "utils.h"
 
-typedef struct {
+typedef struct GameModel {
     CompositeShape* background;
+    Tetromino* cur_tetromino;
+    Tetromino* next_tetromino;
+    Stack* tetrominos;
     int score;
 } GameModel;
 

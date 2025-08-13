@@ -5,13 +5,11 @@
 #include "config.h"
 #include "hardware/uart.h"
 
-Rect* init_rect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color) {
+Rect* init_rect(UInt16Pair pixel, UInt16Pair size, uint16_t color) {
     Rect* rect = (Rect*)malloc(sizeof(Rect));
     rect->base.shape_type = RECT;
-    rect->base.x = x;
-    rect->base.y = y;
-    rect->w = w;
-    rect->h = h;
+    rect->base.pixel = pixel;
+    rect->size = size;
     rect->base.color = color;
     return rect;
 }

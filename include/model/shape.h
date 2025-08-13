@@ -4,17 +4,17 @@
 #include <stdint.h>
 
 #include "graphics.h"
+#include "pair.h"
 
-typedef enum {
+typedef enum ShapeType {
     RECT,
     LABEL
 } ShapeType;
 
-typedef struct {
+typedef struct Shape {
     ShapeType shape_type;
     uint16_t color;
-    uint16_t x;
-    uint16_t y;
+    UInt16Pair pixel;
 } Shape;
 
 #endif

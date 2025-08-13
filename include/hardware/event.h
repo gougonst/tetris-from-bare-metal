@@ -1,7 +1,7 @@
 #ifndef EVENT_H
 #define EVENT_H
 
-typedef enum {
+typedef enum Event {
     EVENT_NONE,
     EVENT_LEFT,
     EVENT_RIGHT,

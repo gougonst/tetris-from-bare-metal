@@ -11,11 +11,12 @@
 #include "gfx_graphics.h"
 #include "graphics.h"
 #include "label.h"
+#include "pair.h"
 #include "rect.h"
 #include "shape.h"
 #include "utils.h"
 
-typedef struct {
+typedef struct GameView {
     Graphics* graphics;
     CompositeShapeArray* shapes;
     int counter;

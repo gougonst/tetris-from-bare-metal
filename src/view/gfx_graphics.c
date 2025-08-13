@@ -21,11 +21,11 @@ void gfx_flush() {
     GFX_flush();
 }
 
-void gfx_draw_rect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color) {
-    GFX_fillRect(x, y, w, h, color);
+void gfx_draw_rect(UInt16Pair pixel, UInt16Pair size, uint16_t color) {
+    GFX_fillRect(pixel.first, pixel.second, size.first, size.second, color);
 }
 
-void gfx_draw_label(int16_t x, int16_t y, const char *text) {
-    GFX_setCursor(x, y);
+void gfx_draw_label(UInt16Pair pixel, const char *text) {
+    GFX_setCursor(pixel.first, pixel.second);
     GFX_printf(text);
 }

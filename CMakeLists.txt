@@ -20,6 +20,7 @@ set(PICO_SDK_INIT_CMAKE_FILE ${PICO_SDK_PATH}/pico_sdk_init.cmake)
 include(${PICO_SDK_INIT_CMAKE_FILE})
 
 set(SRC_FILES
+    src/common/stack.c
     src/common/utils.c
     src/controller/game_controller.c
     src/hardware/button.c
@@ -28,6 +29,7 @@ set(SRC_FILES
     src/model/game_model.c
     src/model/label.c
     src/model/rect.c
+    src/model/tetromino.c
     src/view/game_view.c
     src/view/gfx_graphics.c
     src/main.c

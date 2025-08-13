@@ -7,7 +7,7 @@
 #include "game_model.h"
 #include "game_view.h"
 
-typedef struct {
+typedef struct GameController {
     volatile GameModel* _model;
     volatile GameView* _view;
 } GameController;

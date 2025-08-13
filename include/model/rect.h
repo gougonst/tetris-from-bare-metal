@@ -4,14 +4,14 @@
 #include <stdlib.h>
 
 #include "graphics.h"
+#include "pair.h"
 #include "shape.h"
 
-typedef struct {
+typedef struct Rect {
     Shape base;
-    uint16_t w;
-    uint16_t h;
+    UInt16Pair size;
 } Rect;
 
-Rect* init_rect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color);
+Rect* init_rect(UInt16Pair pixel, UInt16Pair size, uint16_t color);
 
 #endif

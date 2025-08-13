@@ -67,10 +67,8 @@ void _draw_rect(volatile GameView* view, Shape* shape) {
     Graphics* graphics = view->graphics;
     Rect* rect = (Rect*)shape;
     graphics->draw_rect(
-        rect->base.x,
-        rect->base.y,
-        rect->w,
-        rect->h,
+        rect->base.pixel,
+        rect->size,
         rect->base.color
     );
 }
@@ -80,8 +78,7 @@ void _draw_label(volatile GameView* view, Shape* shape) {
     Graphics* graphics = view->graphics;
     Label* label = (Label*)shape;
     graphics->draw_label(
-        label->base.x,
-        label->base.y,
+        label->base.pixel,
         label->text
     );
 }
