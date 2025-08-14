@@ -40,11 +40,12 @@ volatile GameModel* init_model() {
         rgb565(255, 255, 255))
     );
 
-    Tetromino* cur_tetromino = init_tetromino(TETROMINO_I, coord2Pixel((UInt16Pair) { 3, 0 }));
+    Tetromino* tetromino = init_tetromino(TETROMINO_I, coord2Pixel((UInt16Pair) { 3, 0 }));
 
     model->background = background;
-    model->cur_tetromino = cur_tetromino;
     model->score = 0;
+    model->tetrominos = create_stack();
+    push(model->tetrominos, tetromino);
     return model;
 }
 
@@ -74,11 +75,18 @@ void update_model(volatile GameModel *model, Event e) {
 }
 
 CompositeShapeArray* get_shapes(volatile GameModel *model) {
-    int num_shapes = 2;
+    // Num of shapes = 1 (background) + num of tetrominos
+    int num_shapes = 1 + model->tetrominos->size;
 
     CompositeShape** comp_shapes = malloc(sizeof(CompositeShape*) * num_shapes);
+    // The first shape needs to be the background, because it is the base layer
     comp_shapes[0] = model->background;
-    comp_shapes[1] = model->cur_tetromino->shape;
+    // Iterate through the stack of tetrominos
+    StackNode* node = model->tetrominos->top;
+    for (int i = 1; i < num_shapes; i++) {
+        comp_shapes[i] = ((Tetromino*) node->data)->shape;
+        node = node->next;
+    }
 
     CompositeShapeArray* comp_shape_arr = (CompositeShapeArray*)malloc(sizeof(CompositeShapeArray));
     comp_shape_arr->shapes = comp_shapes;

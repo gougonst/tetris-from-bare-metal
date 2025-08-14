@@ -3,6 +3,7 @@
 Stack* create_stack() {
     Stack* stack = malloc(sizeof(Stack));
     stack->top = NULL;
+    stack->size = 0;
     return stack;
 }
 
@@ -11,6 +12,7 @@ void push(Stack* stack, void* data) {
     new_node->data = data;
     new_node->next = stack->top;
     stack->top = new_node;
+    stack->size++;
 }
 
 void pop(Stack* stack) {
@@ -19,6 +21,7 @@ void pop(Stack* stack) {
     }
     StackNode* tmp = stack->top;
     stack->top = stack->top->next;
+    stack->size--;
     free(tmp->data);
     free(tmp);
 }

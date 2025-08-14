@@ -18,7 +18,6 @@
 
 typedef struct GameModel {
     CompositeShape* background;
-    Tetromino* cur_tetromino;
     Tetromino* next_tetromino;
     Stack* tetrominos;
     int score;

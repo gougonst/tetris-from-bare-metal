@@ -10,6 +10,7 @@ typedef struct StackNode {
 
 typedef struct Stack {
     struct StackNode* top;
+    int size;
 } Stack;
 
 Stack* create_stack();
