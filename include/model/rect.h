@@ -9,9 +9,9 @@
 
 typedef struct Rect {
     Shape base;
-    UInt16Pair size;
+    Int16Pair size;
 } Rect;
 
-Rect* init_rect(UInt16Pair pixel, UInt16Pair size, uint16_t color);
+Rect* init_rect(Int16Pair pixel, Int16Pair size, int16_t color);
 
 #endif

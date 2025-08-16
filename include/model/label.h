@@ -10,9 +10,9 @@
 typedef struct Label {
     Shape base;
     char* text;
-    uint16_t size;
+    int16_t size;
 } Label;
 
-Label* init_label(UInt16Pair pixel, char text[], uint16_t size, uint16_t color);
+Label* init_label(Int16Pair pixel, char text[], int16_t size, int16_t color);
 
 #endif

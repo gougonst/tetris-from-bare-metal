@@ -1,12 +1,14 @@
 #ifndef GAME_MODEL_H
 #define GAME_MODEL_H
 
+#include <stdbool.h>
 #include <stdlib.h>
 
 #include "hardware/uart.h"
 
 #include "composite_shape.h"
 #include "config.h"
+#include "errno.h"
 #include "event.h"
 #include "label.h"
 #include "pair.h"
@@ -20,6 +22,7 @@ typedef struct GameModel {
     CompositeShape* background;
     Tetromino* next_tetromino;
     Stack* tetrominos;
+    bool game_board[GAMEBOARD_ROWS][GAMEBOARD_COLS];
     int score;
 } GameModel;
 
